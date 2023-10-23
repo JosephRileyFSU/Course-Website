@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.project.Views.CreateNewPerson"
+             Title="Create New Person"
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving"
+             >
+    <VerticalStackLayout>
+        <Label 
+            Text="What type of person do you want to create?"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <StackLayout
+            RadioButtonGroup.GroupName="Types of people"
+            RadioButtonGroup.SelectedValue="{Binding PersonType}">
+            <RadioButton Content="Student"
+                         Value="1"/>
+            <RadioButton Content="Teaching Assistant"
+                         Value="2"/>
+            <RadioButton Content="Instructor"
+                         Value="3"/>
+
+        </StackLayout>
+        <Label 
+            Text="Enter the new persons name:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry Text="{Binding Path = Name, Mode=TwoWay}"></Entry>
+        <Label 
+            Text="Enter a classification if the person is a student:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <StackLayout 
+         RadioButtonGroup.GroupName="Classifications"
+            RadioButtonGroup.SelectedValue="{Binding Classification}">
+            <RadioButton Content="Freshman"
+                         Value="F"/>
+            <RadioButton Content="Sophmore"
+                         Value="O"/>
+            <RadioButton Content="Junior"
+                         Value="J"/>
+            <RadioButton Content="Senior"
+                         Value="S"/>
+
+        </StackLayout>
+        <Button
+            Text="Finished"
+            Clicked="FinishedClicked"
+            BackgroundColor="Green" />
+    </VerticalStackLayout>
+</ContentPage>

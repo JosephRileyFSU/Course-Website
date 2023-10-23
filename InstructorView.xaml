@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.project.Views.InstructorView"
+             Title="InstructorView"
+             NavigatedTo="ContentPage_NavigatedTo"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="People"
+            Clicked="Toolbar_PeopleClicked"/>
+        <ToolbarItem
+            Text="Courses"
+            Clicked="Toolbar_CoursesClicked"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <VerticalStackLayout IsVisible="{Binding IsPeopleVisible}">
+            <Label 
+                Text="Instructor"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <Label 
+                Text="Search for Students:"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"/>
+            <SearchBar
+                Text="{Binding Query, Mode=TwoWay}"
+                ></SearchBar>
+            <ListView
+                ItemsSource="{Binding People}"
+                SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
+            </ListView>
+                <Button
+                Text="Create a new Person"
+                Clicked="CreateNewPersonClicked" />
+            <Button
+                Text="Update Student"
+                Clicked="UpdatePersonClicked" />
+            <Button
+                Text="Delete Student"
+                Clicked="RemovePersonClicked" />
+            <Button
+                Text="Logout"
+                Clicked="LogoutClicked"
+                BackgroundColor="DarkRed" />
+        </VerticalStackLayout>
+    
+        <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}">
+            <Label 
+                Text="Instructor"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <Label 
+                Text="Search for Courses:"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"/>
+            <SearchBar
+                Text="{Binding Query, Mode=TwoWay}"
+            ></SearchBar>
+            <ListView
+                ItemsSource="{Binding Courses}"
+                SelectedItem="{Binding SelectedCourse, Mode=TwoWay}">
+            </ListView>
+            <Button
+                Text="Create a new Course"
+                Clicked="CreateNewCourseClicked" />
+            <Button
+                Text="Update/View a course"
+                Clicked="UpdateCourseClicked" />
+            <Button
+                Text="Delete a Course"
+                Clicked="RemoveCourseClicked" />
+            <Button
+                Text="Logout"
+                Clicked="LogoutClicked"
+                BackgroundColor="DarkRed" />
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

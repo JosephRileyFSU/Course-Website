@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.project.Views.StudentView"
+             Title="StudentView"
+             NavigatedTo="ContentPage_NavigatedTo">
+    <VerticalStackLayout>
+        <Label 
+            Text="Student"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Select a Student"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <SearchBar
+                Text="{Binding Query, Mode=TwoWay}"
+                ></SearchBar>
+        <ListView
+                ItemsSource="{Binding People}"
+                SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
+        </ListView>
+        <Button
+            Text="View my Courses"
+            Clicked="ViewCoursesClicked"
+            BackgroundColor="Green"/>
+        <ListView
+                ItemsSource="{Binding Courses}">
+        </ListView>
+        <Button
+            Text="Logout"
+            Clicked="LogoutClicked"
+            BackgroundColor="DarkRed"
+            />
+    </VerticalStackLayout>
+</ContentPage>
